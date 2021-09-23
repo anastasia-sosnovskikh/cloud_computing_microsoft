@@ -1,0 +1,277 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Cloud Computing</title>
+        <meta name="robots" content="noindex" />
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="preface.html">Preface</a></li><li class="chapter-item expanded "><a href="1.html"><strong aria-hidden="true">1.</strong> Describe Core Concepts</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="1_1.html"><strong aria-hidden="true">1.1.</strong> Introduction to Fundamentals</a></li><li class="chapter-item expanded "><a href="1_3.html"><strong aria-hidden="true">1.2.</strong> Discuss Fundamental Concepts</a></li><li class="chapter-item expanded "><a href="1_3.html"><strong aria-hidden="true">1.3.</strong> Describe Core Azure Architectural Components</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Cloud Computing</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <p><em>These are the notes from the Microsoft's course on Cloud Computing. 
+All the credit for the info goes to Microsoft, and all the credit for the effort goes to <a href="https://www.linkedin.com/in/anastasia-sosnovskikh/">me</a>.</em></p>
+<p><em>Note:</em> since it is based off of Microsoft's course, the material is tightly tied to Azure. </p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="describe-core-concepts"><a class="header" href="#describe-core-concepts">Describe Core Concepts</a></h1>
+<p>The first part, <em>Introduction to Fundamentals</em>, introduces the basics of cloud computing and Azure. 
+The advantages of using cloud computing services and differentiation between the categories and types of cloud computing is discussed in <em>Discuss Fundamental Concepts</em>.
+<em>Describe Core Azure Architectural Components</em> examines concepts, resources, and terminology necessary to work with Azure architecture. </p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="introduction-to-fundamentals"><a class="header" href="#introduction-to-fundamentals">Introduction to Fundamentals</a></h1>
+<h2 id="what-is-cloud-computing"><a class="header" href="#what-is-cloud-computing">What is Cloud Computing?</a></h2>
+<p><strong>Cloud computing</strong> is the delivery of computing services over the internet which is known as the <em>cloud.</em> </p>
+<p>The <strong>services</strong> are:</p>
+<ul>
+<li><em>compute power</em> (how much processing your computer can do)</li>
+<li><em>storage</em> (the volume of data you use on your computer)</li>
+</ul>
+<p>You use the services provided on a computer which is somewhere in the cloud provider's datacenter. It is a way to rent computing power and storage from someone else's computer. </p>
+<h2 id="why-is-cloud-computing-usually-cheaper-to-use"><a class="header" href="#why-is-cloud-computing-usually-cheaper-to-use">Why is cloud computing usually cheaper to use?</a></h2>
+<p>You only pay for the resources you use without worrying about managing the upkeep of the computer, so it is economically efficient or cost effective. Cloud computing allows for a flexible resources and cost effective scaling. Typically, cloud computing:</p>
+<ul>
+<li>Lowers operating costs</li>
+<li>Helps to run infrastructures efficiently</li>
+<li>Allows for efficient scaling</li>
+</ul>
+<h2 id="what-is-azure"><a class="header" href="#what-is-azure">What is Azure?</a></h2>
+<p><strong>Azure</strong> is a set of cloud services provided by <em>Microsoft</em>. It supports infrastructure, platform, and software as the service computing. They are pay-as-you-go services.</p>
+<h3 id="how-does-it-work"><a class="header" href="#how-does-it-work">How does it work?</a></h3>
+<p>Azure uses <strong>virtualization</strong>. There is an abstraction layer called a <em>hypervisor</em> that separates the hardware and the operating system. The hypervisor emulates all the functions of a real computer in a virtual machine optimizing the capacity of the abstracted hardware. It can run many VMs with different OSs such as windows or linux. There are numerous datacenters in Microsoft, and each datacenter has many servers, and each server has a hypervisor that can have many different VMs on it. Each server runs a fabric controller on it. Each fabric controller is connected to the orchestrator that is responsible for managing everything that happens in azure including responding to user requests. User makes requests using the orchestrators Web API that can be called by many different tools. When a user makes a request to create a VM, orchestrator packages what's needed, sends request to the fabric controller which creates a VM. Once FC created a VM, the user can connect to it. </p>
+<h3 id="what-is-azure-portal"><a class="header" href="#what-is-azure-portal">What is Azure Portal?</a></h3>
+<p><strong>Azure Portal</strong> is a GUI web-based console that provides an alternative to command-line tools. It lets you create, configure, and control your Azure services and subscriptions. </p>
+<p><img src="pics/azure_portal.png" alt="azure_portal" /></p>
+<h3 id="what-is-azure-marketplace"><a class="header" href="#what-is-azure-marketplace">What is Azure Marketplace?</a></h3>
+<p><strong>Azure Marketplace</strong> is a tool using which customers can browse, try, and buy applications and services optimized to run on Azure from Microsoft partners, independent software vendors, and startups.</p>
+<p><img src="pics/azure_marketplace.png" alt="azure_marketplace" /></p>
+<h3 id="what-are-azure-services"><a class="header" href="#what-are-azure-services">What are Azure Services?</a></h3>
+<p>There are a lot of services available on Azure. Here are some most common categories of services:</p>
+<ul>
+<li><strong>Compute</strong> - scale your computing capabilities on demand</li>
+<li><strong>Networking</strong> - connect the cloud and on-premise infrastructure</li>
+<li><strong>Storage</strong> - scale your data and up storage needs securely</li>
+<li><strong>Mobile</strong> - build and deploy native apps</li>
+<li><strong>Databases</strong> - bring databases to the cloud</li>
+<li><strong>Web</strong> - build, deploy, manage, and scale web applications</li>
+<li><strong>IoT</strong> - connect, monitor, and manage IoT assets as well as analyze the incoming data</li>
+<li><strong>Big Data</strong> - run analytics on a massive scale</li>
+<li><strong>AI</strong> - use existing data to forecast future behavior; build, train, and deploy ML models</li>
+<li><strong>DevOps</strong> - create <em>build</em> and <em>release</em> pipelines to provide continuous integration, delivery and deployment</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="describe-core-azure-architectural-components"><a class="header" href="#describe-core-azure-architectural-components">Describe Core Azure Architectural Components</a></h1>
+<h2 id="overview-of-azure-subscriptions-management-groups-and-resources"><a class="header" href="#overview-of-azure-subscriptions-management-groups-and-resources">Overview of Azure subscriptions, management groups, and resources</a></h2>
+<p>The organizing structure for resources in Azure has four levels: management groups, subscriptions, resource groups, and resources.</p>
+<p><img src="pics/structure.png" alt="structure" /></p>
+<ul>
+<li>
+<p><strong>Resources</strong> are the instances of services you create such as VMs, storage, databases, etc.</p>
+</li>
+<li>
+<p><strong>Resource groups</strong> are the groups of resources (duh) which act as logical containers. They cannot be nested.</p>
+<p>It makes sense to group resources in a logical manner. Organizing resources by life cycle can be useful. Resource groups have role-based access control (RBAC) permissions. </p>
+<p>Azure Resource Manager is the deployment and management service for Azure. When a user sends a request, Resource Manager receives it. It authenticates and authorizes the request and sends it to the Azure service, which takes the requested action. </p>
+<p><img src="pics/resource_manager.png" alt="resource_manager" /></p>
+</li>
+<li>
+<p><strong>Subscriptions</strong> group together user accounts and the resources that have been created by the user accounts. It allows you to provision resources. It is a <em>logical unit</em> of Azure. There are two types of boundaries that can be defined around Azure products, services, and resources with subscriptions:</p>
+<ul>
+<li><strong>Billing boundary:</strong> you can create multiple subscriptions for different types of billing requirements.</li>
+<li><strong>Access control boundary:</strong> applies access-management policies at the subscription level.</li>
+</ul>
+</li>
+<li>
+<p><strong>Management groups</strong> help manage access, policy, and compliance for multiple subscriptions.</p>
+</li>
+</ul>
+<h2 id="azure-regions-availability-zones-and-region-pairs"><a class="header" href="#azure-regions-availability-zones-and-region-pairs">Azure regions, availability zones, and region pairs</a></h2>
+<p>Resources are created in regions. <strong>Region</strong> is a geographical area that contains one or more datacenters and networked together with a low-latency network. Azure has more global regions than any other cloud provider. They give the user flexibility, better scalability, and redundancy.</p>
+<p><strong>Availability zones</strong> are physically separate datacenters within a region. It is set up to be an <em>isolation boundary.</em> Availability ones ensure redundancy to protect information in case of failure. They are connected through high-speed, private fiber-optic network. </p>
+<p><strong>Region Pairs</strong> are created in the event if a large disaster affects two datacenters. Each Azure region is connected to another region within the same geography at least 300 miles away. This allows for replication of resources. </p>
+<p><img src="pics/region_pairs.png" alt="region_pairs.png" /></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="describe-core-azure-architectural-components-1"><a class="header" href="#describe-core-azure-architectural-components-1">Describe Core Azure Architectural Components</a></h1>
+<h2 id="overview-of-azure-subscriptions-management-groups-and-resources-1"><a class="header" href="#overview-of-azure-subscriptions-management-groups-and-resources-1">Overview of Azure subscriptions, management groups, and resources</a></h2>
+<p>The organizing structure for resources in Azure has four levels: management groups, subscriptions, resource groups, and resources.</p>
+<p><img src="pics/structure.png" alt="structure" /></p>
+<ul>
+<li>
+<p><strong>Resources</strong> are the instances of services you create such as VMs, storage, databases, etc.</p>
+</li>
+<li>
+<p><strong>Resource groups</strong> are the groups of resources (duh) which act as logical containers. They cannot be nested.</p>
+<p>It makes sense to group resources in a logical manner. Organizing resources by life cycle can be useful. Resource groups have role-based access control (RBAC) permissions. </p>
+<p>Azure Resource Manager is the deployment and management service for Azure. When a user sends a request, Resource Manager receives it. It authenticates and authorizes the request and sends it to the Azure service, which takes the requested action. </p>
+<p><img src="pics/resource_manager.png" alt="resource_manager" /></p>
+</li>
+<li>
+<p><strong>Subscriptions</strong> group together user accounts and the resources that have been created by the user accounts. It allows you to provision resources. It is a <em>logical unit</em> of Azure. There are two types of boundaries that can be defined around Azure products, services, and resources with subscriptions:</p>
+<ul>
+<li><strong>Billing boundary:</strong> you can create multiple subscriptions for different types of billing requirements.</li>
+<li><strong>Access control boundary:</strong> applies access-management policies at the subscription level.</li>
+</ul>
+</li>
+<li>
+<p><strong>Management groups</strong> help manage access, policy, and compliance for multiple subscriptions.</p>
+</li>
+</ul>
+<h2 id="azure-regions-availability-zones-and-region-pairs-1"><a class="header" href="#azure-regions-availability-zones-and-region-pairs-1">Azure regions, availability zones, and region pairs</a></h2>
+<p>Resources are created in regions. <strong>Region</strong> is a geographical area that contains one or more datacenters and networked together with a low-latency network. Azure has more global regions than any other cloud provider. They give the user flexibility, better scalability, and redundancy.</p>
+<p><strong>Availability zones</strong> are physically separate datacenters within a region. It is set up to be an <em>isolation boundary.</em> Availability ones ensure redundancy to protect information in case of failure. They are connected through high-speed, private fiber-optic network. </p>
+<p><strong>Region Pairs</strong> are created in the event if a large disaster affects two datacenters. Each Azure region is connected to another region within the same geography at least 300 miles away. This allows for replication of resources. </p>
+<p><img src="pics/region_pairs.png" alt="region_pairs.png" /></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+    </body>
+</html>
